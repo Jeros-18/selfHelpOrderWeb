@@ -32,9 +32,9 @@
         <template slot-scope="scope">{{ (current - 1) * limit + scope.$index + 1 }}</template>
       </el-table-column>
 
-      <el-table-column prop="name" label="菜名" width="80"/>
+      <el-table-column prop="name" label="菜名" width="150"/>
 
-      <el-table-column  prop="kind" label="菜品分类" width="80" >
+      <el-table-column  prop="kind" label="菜品分类" width="100" >
       </el-table-column>
 
 
@@ -44,16 +44,16 @@
 
         <el-table-column prop="note" label="简介" />
 
-      <el-table-column label="操作" width="400" align="center">
+      <el-table-column label="操作" width="300" align="center">
         <template slot-scope="scope">
           <router-link :to="'/food/add/'+scope.row.id">
             <el-button type="primary" size="mini" icon="el-icon-edit">菜品评价</el-button>
           </router-link>
 
            <el-button
-            type="primary"
+            type="success"
             size="mini"
-            icon="el-icon-edit"
+            icon="el-icon-circle-plus-outline"
             @click=""
           >加入订单</el-button>
 
