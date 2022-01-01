@@ -50,6 +50,19 @@ export const constantRouterMap = [
     ]
   },
 
+  {
+    path: '/myList',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: '我的订单',
+        component: () => import('@/views/myList/index'),
+        meta: { title: '我的订单', icon: 'table' }
+      }
+    ]
+  },
+
   
 
   {

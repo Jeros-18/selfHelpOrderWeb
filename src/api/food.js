@@ -26,10 +26,10 @@ export default {
           })
     },
 
-    //展示订单页面
-    getAllPicked(){
+    //展示订单
+    showDing(){
         return request({
-            url: `/linux/food/`,
+            url: `/linux/food/getAllPicked`,
             method: 'get'
           })
     }
