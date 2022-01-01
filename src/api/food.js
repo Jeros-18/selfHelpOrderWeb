@@ -8,6 +8,21 @@ export default {
             method: 'post',
             data: foodQuery  //转化json传递
           })
-    }
+    },
  
+    //加入订单
+    addDing(id){
+        return request({
+            url: `/linux/food/addNum/${id}`,
+            method: 'put'
+          })
+    },
+
+    //展示订单页面
+    getAllPicked(){
+        return request({
+            url: `/linux/food/`,
+            method: 'get'
+          })
+    }
 }

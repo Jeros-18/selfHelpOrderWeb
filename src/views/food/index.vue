@@ -43,19 +43,38 @@
       <el-table-column prop="start" label="评价" width="80"/>
 
         <el-table-column prop="note" label="简介" />
+        <el-table-column prop="num" label="num" width="60"/>
 
-      <el-table-column label="操作" width="300" align="center">
+      <el-table-column label="操作" width="400" align="center">
         <template slot-scope="scope">
           <router-link :to="'/food/add/'+scope.row.id">
             <el-button type="primary" size="mini" icon="el-icon-edit">菜品评价</el-button>
           </router-link>
 
-           <el-button
+          <el-button
+         
             type="success"
             size="mini"
             icon="el-icon-circle-plus-outline"
             @click="addOrderForm(scope.row.id)"
-          >加入订单</el-button>
+          >加入订单</el-button> 
+
+       <el-button
+            
+            type="danger"
+            size="mini"
+            icon="el-icon-remove-outline"
+            @click="addOrderForm(scope.row.id)"
+          >移出订单</el-button>
+
+
+        <!-- 
+v-show="isPick=='1'"
+ v-show="isPick=='0'"
+
+    v-show="num>0"
+         -->
+          
 
         </template>
       </el-table-column>
@@ -77,6 +96,8 @@ import food from "@/api/food";
 export default {
   data() {
     return {
+      b:2,
+      pick:0,
       current: 1, //页码
       limit: 10, //每页多少行
       foodQuery: {}, //查询条件
@@ -112,15 +133,15 @@ export default {
         type: "warning"
       })
         .then(() => {
-          teacher.delTeacher(id).then(response => {
-            //删除成功
+          food.addDing(id).then(response => {
+            //添加成功
             console.log("添加成功");
             this.$message({
               type: "success",
               message: "添加成功!"
             });
-            //刷新表格
-            this.getTeacherPageQuery();
+             //刷新表格
+            this.getFoodPageQuery();
           });
         })
         .catch(() => {
