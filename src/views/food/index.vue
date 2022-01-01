@@ -8,6 +8,10 @@
       </el-form-item>
 
       <el-form-item>
+        <el-input v-model="foodQuery.img" placeholder="图片"/>
+      </el-form-item>
+
+      <el-form-item>
         <el-select v-model="foodQuery.kind" clearable placeholder="菜品分类">
           <el-option :value="'荤菜'" label="荤菜"/>
           <el-option :value="'素菜'" label="素菜"/>
@@ -32,9 +36,15 @@
         <template slot-scope="scope">{{ (current - 1) * limit + scope.$index + 1 }}</template>
       </el-table-column>
 
-      <el-table-column prop="name" label="菜名" width="150"/>
+      <el-table-column prop="name" label="菜名" width="150" align="center"/>
 
-      <el-table-column  prop="kind" label="菜品分类" width="100" >
+      <el-table-column prop="img" label="图片" width="150" align="center">
+          <template slot-scope="scope">
+              <img :src="scope.row.img" alt="" style="width:130px; height:100px">
+          </template>
+        </el-table-column>
+
+      <el-table-column  prop="kind" label="菜品分类" width="100" align="center">
       </el-table-column>
 
 
@@ -99,7 +109,7 @@ export default {
       b:2,
       pick:0,
       current: 1, //页码
-      limit: 10, //每页多少行
+      limit: 5, //每页多少行
       foodQuery: {}, //查询条件
       list: [], //列表数据
       total: 0 //总记录数
