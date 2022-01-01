@@ -161,14 +161,15 @@ export default {
       })
         .then(() => {
           food.removeDing(id).then(response => {
-            //移出成功
-            console.log("移出成功");
-            this.$message({
-              type: "success",
-              message: "移出成功!"
-            });
-             //刷新表格
-            this.getFoodPageQuery();
+              //移出成功
+              console.log("移出成功");
+              this.$message({
+                type: "success",
+                message: "移出成功!"
+              });              
+            //刷新表格
+              this.getFoodPageQuery();
+             
           });
         })
         .catch(() => {
