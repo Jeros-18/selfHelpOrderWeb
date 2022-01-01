@@ -64,7 +64,7 @@
             type="danger"
             size="mini"
             icon="el-icon-remove-outline"
-            @click="addOrderForm(scope.row.id)"
+            @click="removeOrderForm(scope.row.id)"
           >移出订单</el-button>
 
 
@@ -148,6 +148,33 @@ export default {
           this.$message({
             type: "info",
             message: "已取消添加"
+          });
+        });
+    },
+
+    //移出订单
+    removeOrderForm(id) {
+      this.$confirm("确定将此菜品移出订单吗, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          food.removeDing(id).then(response => {
+            //移出成功
+            console.log("移出成功");
+            this.$message({
+              type: "success",
+              message: "移出成功!"
+            });
+             //刷新表格
+            this.getFoodPageQuery();
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消移出"
           });
         });
     }

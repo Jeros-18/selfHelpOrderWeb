@@ -18,6 +18,14 @@ export default {
           })
     },
 
+    //移出订单
+    removeDing(id){
+        return request({
+            url: `/linux/food/removeNum/${id}`,
+            method: 'put'
+          })
+    },
+
     //展示订单页面
     getAllPicked(){
         return request({
