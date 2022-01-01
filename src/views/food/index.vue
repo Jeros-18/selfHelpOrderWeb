@@ -40,16 +40,16 @@
 
       <el-table-column prop="price" label="价格" width="80"/>
 
-      <el-table-column prop="start" label="评价" width="80"/>
+      <!-- <el-table-column prop="start" label="评价" width="80"/> -->
 
         <el-table-column prop="note" label="简介" />
-        <el-table-column prop="num" label="num" width="60"/>
+        <el-table-column prop="num" label="购买数量/份" width="100" align="center"/>
 
       <el-table-column label="操作" width="400" align="center">
         <template slot-scope="scope">
-          <router-link :to="'/food/add/'+scope.row.id">
+          <!-- <router-link :to="'/food/add/'+scope.row.id">
             <el-button type="primary" size="mini" icon="el-icon-edit">菜品评价</el-button>
-          </router-link>
+          </router-link> -->
 
           <el-button
          
