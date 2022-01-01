@@ -54,7 +54,7 @@
             type="success"
             size="mini"
             icon="el-icon-circle-plus-outline"
-            @click=""
+            @click="addOrderForm(scope.row.id)"
           >加入订单</el-button>
 
         </template>
@@ -103,6 +103,33 @@ export default {
       this.foodQuery = {};
       this.getFoodPageQuery();
     },
+
+    //加入订单
+    addOrderForm(id) {
+      this.$confirm("确定加入此菜品进入订单吗, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          teacher.delTeacher(id).then(response => {
+            //删除成功
+            console.log("添加成功");
+            this.$message({
+              type: "success",
+              message: "添加成功!"
+            });
+            //刷新表格
+            this.getTeacherPageQuery();
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消添加"
+          });
+        });
+    }
     
   }
 };
