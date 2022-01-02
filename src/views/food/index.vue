@@ -48,7 +48,7 @@
       </el-table-column>
 
 
-      <el-table-column prop="price" label="价格" width="80"/>
+      <el-table-column prop="price" label="价格/元" width="80"/>
 
       <!-- <el-table-column prop="start" label="评价" width="80"/> -->
 

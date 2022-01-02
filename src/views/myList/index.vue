@@ -17,9 +17,9 @@
 
       <el-table-column prop="name" label="菜名" width="270"/>
 
-      <el-table-column prop="price" label="价格(/元)" width="130"/>
+      <el-table-column prop="price" label="价格/元" width="130"/>
 
-        <el-table-column prop="num" label="份量(/份)" width="100"/>
+        <el-table-column prop="num" label="份量/份" width="100"/>
         
 
         
